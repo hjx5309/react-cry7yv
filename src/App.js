@@ -7,12 +7,14 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 moment.locale('zh-cn');
-
+import Left from './tree';
 export default function App() {
   return (
     <div>
       <Row>
-        <Col span={8}>col-8</Col>
+        <Col span={8}>
+          <Left />
+        </Col>
         <Col span={8}>col-8</Col>
         <Col span={8}>col-8</Col>
       </Row>
