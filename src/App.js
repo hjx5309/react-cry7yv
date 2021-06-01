@@ -7,13 +7,11 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 moment.locale('zh-cn');
-const { RangePicker } = DatePicker;
 
 export default function App() {
   return (
     <div>
       <h1>Hello StackBlitz!</h1>
-      <RangePicker picker="week" format="YYYY-MM-DD" onChange={changeTime} />
     </div>
   );
 }
