@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tag, message } from 'antd';
-
+import onfire from './fire.js';
 
 export default class Middle extends React.Component {
   state = {
@@ -9,13 +9,17 @@ export default class Middle extends React.Component {
   onDrop = event => {
     let { tags } = this.state;
     // console.log(event.dataTransfer.getData('aaaa'));
+    console.log(event.dataTransfer.getData('aaaa'));
+    var data = JSON.parse(event.dataTransfer.getData('aaaa'));
+    console.log(data.title);
     if (tags.length === 0) {
-      console.log(event.dataTransfer.getData('aaaa'));
-      var data = JSON.parse(event.dataTransfer.getData('aaaa'));
       tags.push(data.title);
       this.setState({ tags });
+      onfire.fire('test_event', data.title);
     } else {
-      if (data.title === tags) {
+      console.log(tags[0]);
+      if (data.title == tags[0]) {
+        console.log('1', tags[0]);
         message.error('不能添加重复的指标');
       } else {
         message.error('这两个指标无关联关系');
@@ -26,6 +30,7 @@ export default class Middle extends React.Component {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     console.log(tags);
     this.setState({ tags });
+    onfire.fire('test_event', '');
   };
   forMap = tag => {
     const tagElem = (

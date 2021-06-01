@@ -9,6 +9,7 @@ import 'antd/dist/antd.css';
 moment.locale('zh-cn');
 import Left from './tree';
 import MIddle from './middle';
+import Right from './right';
 export default function App() {
   return (
     <div>
@@ -19,7 +20,9 @@ export default function App() {
         <Col span={8}>
           <MIddle />
         </Col>
-        <Col span={8}>col-8</Col>
+        <Col span={8}>
+          <Right />
+        </Col>
       </Row>
     </div>
   );
