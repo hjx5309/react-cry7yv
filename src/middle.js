@@ -7,18 +7,19 @@ export default class Middle extends React.Component {
   };
   onDrop = event => {
     let { tags } = this.state;
-    console.log(event.dataTransfer.getData('text'));
-    // if (tags.length === 0) {
-    //   console.log(event.dataTransfer.getData('text'));
-    //   var data = JSON.parse(event.dataTransfer.getData('text'));
-    //   console.log(data.title);
-    // } else {
-    //   if (data.title === tags) {
-    //     message.error('不能添加重复的指标');
-    //   } else {
-    //     message.error('这两个指标无关联关系');
-    //   }
-    // }
+    // console.log(event.dataTransfer.getData('aaaa'));
+    if (tags.length === 0) {
+      console.log(event.dataTransfer.getData('aaaa'));
+      var data = JSON.parse(event.dataTransfer.getData('aaaa'));
+      tags.push(data.title);
+      this.setState({ tags });
+    } else {
+      if (data.title === tags) {
+        message.error('不能添加重复的指标');
+      } else {
+        message.error('这两个指标无关联关系');
+      }
+    }
   };
   handleClose = removedTag => {
     const tags = this.state.tags.filter(tag => tag !== removedTag);

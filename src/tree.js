@@ -23,7 +23,7 @@ export default class Left extends React.Component {
   };
   onDragStart = node => {
     // console.log(event);
-    node.event.dataTransfer.setData('text', '2222');
+    node.event.dataTransfer.setData('aaaa', JSON.stringify(node.node));
   };
   render() {
     return (
