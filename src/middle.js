@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tag, message } from 'antd';
 
+
 export default class Middle extends React.Component {
   state = {
     tags: []
