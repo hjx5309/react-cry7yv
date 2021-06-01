@@ -24,17 +24,7 @@ export default class Right extends React.Component {
     onfire.clear();
   }
   forMap = tag => {
-    const tagElem = (
-      <Tag
-        closable
-        onClose={e => {
-          e.preventDefault();
-          this.handleClose(tag);
-        }}
-      >
-        {tag}
-      </Tag>
-    );
+    const tagElem = <Tag>{tag}</Tag>;
     return (
       <span key={tag} style={{ display: 'inline-block' }}>
         {tagElem}
