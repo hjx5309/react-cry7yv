@@ -21,6 +21,9 @@ export default class Left extends React.Component {
   setDraggle = node => {
     return !node.children;
   };
+  onDragStart = ({ event, node }) => {
+    event.dataTransfer.setData('text', JSON.stringify(node));
+  };
   render() {
     return (
       <Tree
@@ -29,6 +32,7 @@ export default class Left extends React.Component {
         draggable={this.setDraggle}
         blockNode
         onDrop={this.onDrop}
+        onDragStart={this.onDragStart}
         treeData={this.state.gData}
       />
     );
