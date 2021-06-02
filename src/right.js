@@ -1,9 +1,12 @@
 import React from 'react';
-import { Tag } from 'antd';
+import { Tag, Button } from 'antd';
 import onfire from './fire.js';
 const Data = {
-  销售额: ['成本', '销售人员', '季度'],
-  活跃度: ['活跃时长', '活跃时段']
+  销售额: ['成交时间', '销售人员', '季度'],
+  活跃度: ['活跃时长', '活跃时段'],
+  成本: ['销售人员', '商品成本'],
+  销售额成本: ['成交时间', '销售人员', '季度', '商品成本'],
+  成本销售额: ['成交时间', '销售人员', '季度', '商品成本']
 };
 export default class Right extends React.Component {
   state = {
@@ -26,9 +29,9 @@ export default class Right extends React.Component {
   forMap = tag => {
     const tagElem = <Tag>{tag}</Tag>;
     return (
-      <span key={tag} style={{ display: 'inline-block' }}>
+      <div key={tag} style={{ marginBottom: '10px' }}>
         {tagElem}
-      </span>
+      </div>
     );
   };
   render() {
@@ -40,6 +43,9 @@ export default class Right extends React.Component {
           height: '100vh'
         }}
       >
+        <div>
+          维度:<Button type="primary">保存</Button>
+        </div>
         {tagChild}
       </div>
     );
