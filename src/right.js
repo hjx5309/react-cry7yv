@@ -43,10 +43,14 @@ export default class Right extends React.Component {
           height: '100vh'
         }}
       >
-        <div>
-          维度:<Button type="primary">保存</Button>
-        </div>
+        <div>维度:</div>
         {tagChild}
+        <Button
+          type="primary"
+          style={{ position: 'fixed', bottom: '20px', right: '20px' }}
+        >
+          保存
+        </Button>
       </div>
     );
   }
